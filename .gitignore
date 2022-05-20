@@ -1,0 +1,4 @@
+.idea
+Evernote\__pycache__
+Evernote\venv
+Evernote\geckodriver.log
