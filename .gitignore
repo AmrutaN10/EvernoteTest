@@ -1,4 +1,5 @@
 .idea
-Evernote\__pycache__
-Evernote\venv
-Evernote\geckodriver.log
+Evernote/Locators/__pycache__/
+Evernote/PageObject/__pycache__/
+Evernote/__pycache__/
+Evernote/geckodriver.log
