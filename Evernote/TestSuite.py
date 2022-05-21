@@ -9,15 +9,9 @@ from PageObject.Dashboard import dashboard
 from PageObject.Notes import Notes
 import HtmlTestRunner
 
-driver = webdriver.Firefox()
-# create homepage class object
-Login = homepage(driver)
-# create wrapper class object
-credentials = wrapper(driver)
-# create dashboard class object
-accountpage = dashboard(driver)
-# create Notes class object
-page_notes = Notes(driver)
+
+#driver = webdriver.Firefox()
+#driver.implicitly_wait(25)
 
 
 class loginfun(unittest.TestCase):
@@ -27,98 +21,148 @@ class loginfun(unittest.TestCase):
         # cls.options = webdriver.FirefoxOptions()
         # cls.options.headless = True
         # driver = webdriver.Firefox(options=cls.options)
-        driver.maximize_window()
-        driver.get("https://evernote.com/")
+        cls.driver = webdriver.Firefox()
+        cls.driver.implicitly_wait(25)
+        cls.driver.maximize_window()
+        cls.driver.get("https://evernote.com/")
+        # create homepage class object
+        cls.Login = homepage(cls.driver)
+        # create wrapper class object
+        cls.credentials = wrapper(cls.driver)
+        # create dashboard class object
+        cls.accountpage = dashboard(cls.driver)
+        # create Notes class object
+        cls.page_notes = Notes(cls.driver)
 
     # TestCase for already registered user
     def test_01_validLogin(self):
-        Login.reglogin_click()
-        credentials.enter_emailid("naikamruta43@gmail.com")
+        self.Login = homepage(self.driver)
+        self.Login.reglogin_click()
+        self.credentials = wrapper(self.driver)
+        self.credentials.enter_emailid("naikamruta43@gmail.com")
         time.sleep(2)
-        credentials.continue_button_click()
+        self.credentials.continue_button_click()
         time.sleep(2)
-        credentials.enter_passwrd("123456")
-        credentials.signin_button_click()
+        self.credentials.enter_passwrd("123456")
+        self.credentials.signin_button_click()
         time.sleep(15)
+        self.accountpage = dashboard(self.driver)
         try:
-            text = accountpage.hometext()
+            text = self.accountpage.hometext()
         except:
             print("test failed")
         if bool(text) == True:
             print("Sucessful login")
 
-        accountpage.account_dropdown_click()
+        self.accountpage.account_dropdown_click()
         time.sleep(2)
-        accountpage.signout_menu_click()
+        self.accountpage.signout_menu_click()
         time.sleep(2)
         print("Evernote login has been successfully completed")
+        self.driver.close()
 
     # TestCase for already registered user
     def test_02_validLoginNoteLogout(self):
+        self.driver = webdriver.Firefox()
+        # create homepage class object
+        self.Login = homepage(self.driver)
+        # create wrapper class object
+        self.credentials = wrapper(self.driver)
+        # create dashboard class object
+        self.accountpage = dashboard(self.driver)
+        # create Notes class object
+        self.page_notes = Notes(self.driver)
+        self.driver.implicitly_wait(25)
+        self.driver.maximize_window()
+        self.driver.get("https://evernote.com/")
         time.sleep(10)
-        Login.mainlogin_click()
-        credentials.enter_emailid("naikamruta43@gmail.com")
+        self.Login.reglogin_click()
+        self.credentials.enter_emailid("naikamruta43@gmail.com")
         time.sleep(2)
-        credentials.continue_button_click()
+        self.credentials.continue_button_click()
         time.sleep(2)
-        credentials.enter_passwrd("123456")
-        credentials.signin_button_click()
+        self.credentials.enter_passwrd("123456")
+        self.credentials.signin_button_click()
         time.sleep(25)
-        accountpage.Home_click()
-        accountpage.Notebutton_click()
+        self.accountpage.Home_click()
+        self.accountpage.Notebutton_click()
         time.sleep(5)
-        driver.switch_to.frame("qa-COMMON_EDITOR_IFRAME")
-        page_notes.edit_NotesTitle("TestCase03")
-        page_notes.edit_NotesBody("Hellooooo, this is to test valid login create note and logout")
-        driver.switch_to.default_content()
-        accountpage.Home_click()
+        self.driver.switch_to.frame("qa-COMMON_EDITOR_IFRAME")
+        self.page_notes.edit_NotesTitle("TestCase03")
+        self.page_notes.edit_NotesBody("Hellooooo, this is to test valid login create note and logout")
+        self.driver.switch_to.default_content()
+        self.accountpage.Home_click()
         time.sleep(15)
-        accountpage.account_dropdown_click()
+        self.accountpage.account_dropdown_click()
         time.sleep(2)
-        accountpage.signout_menu_click()
+        self.accountpage.signout_menu_click()
         print("Evernote Valid login created note and log out successfully completed")
+        self.driver.close()
 
     # TestCase for already registered user
     def test_03_validLoginOpenNoteLogout(self):
+        self.driver = webdriver.Firefox()
+        self.driver.implicitly_wait(25)
+        # create homepage class object
+        self.Login = homepage(self.driver)
+        # create wrapper class object
+        self.credentials = wrapper(self.driver)
+        # create dashboard class object
+        self.accountpage = dashboard(self.driver)
+        # create Notes class object
+        self.page_notes = Notes(self.driver)
+        self.driver.maximize_window()
+        self.driver.get("https://evernote.com/")
         time.sleep(10)
-        Login.mainlogin_click()
-        credentials.enter_emailid("naikamruta43@gmail.com")
+        self.Login.reglogin_click()
         time.sleep(2)
-        credentials.continue_button_click()
+        self.credentials.enter_emailid("naikamruta43@gmail.com")
         time.sleep(2)
-        credentials.enter_passwrd("123456")
-        credentials.signin_button_click()
+        self.credentials.continue_button_click()
+        time.sleep(2)
+        self.credentials.enter_passwrd("123456")
+        self.credentials.signin_button_click()
         time.sleep(15)
-        accountpage.Home_click()
-        page_notes.creatednote_click()
-        accountpage.note_action()
-        accountpage.delete_action()
+        self.accountpage.Home_click()
+        self.page_notes.creatednote_click()
+        self.accountpage.note_action()
+        self.accountpage.delete_action()
         time.sleep(15)
-        accountpage.account_dropdown_click()
+        self.accountpage.account_dropdown_click()
         time.sleep(2)
-        accountpage.signout_menu_click()
+        self.accountpage.signout_menu_click()
         print("Evernote Valid login open created note and log out successfully completed")
+        self.driver.close()
 
     # TestCase for not registered user
     def test_04_InvalidLogin(self):
+        self.driver = webdriver.Firefox()
+        # create homepage class object
+        self.Login = homepage(self.driver)
+        # create wrapper class object
+        self.credentials = wrapper(self.driver)
+        # create dashboard class object
+        self.accountpage = dashboard(self.driver)
+        # create Notes class object
+        self.page_notes = Notes(self.driver)
+        self.driver.implicitly_wait(25)
+        self.driver.maximize_window()
+        self.driver.get("https://evernote.com/")
         time.sleep(10)
-        Login.mainlogin_click()
-        credentials.enter_emailid("namruta43@gmail.com")
+        self.Login.reglogin_click()
         time.sleep(2)
-        credentials.continue_button_click()
+        self.credentials.enter_emailid("namruta43@gmail.com")
         time.sleep(2)
+        self.credentials.continue_button_click()
         time.sleep(2)
         try:
-            text = credentials.errortext()
+            text = self.credentials.errortext()
         except:
             print("test failed")
         if bool(text) == True:
             print("UnSucessful login")
+        self.driver.close()
 
-    @classmethod
-    def tearDownClass(cls):
-        driver.close()
-        driver.quit()
 
 
 if __name__ == '__main__':
