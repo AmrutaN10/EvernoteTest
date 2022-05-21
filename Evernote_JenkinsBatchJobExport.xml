@@ -1,0 +1,48 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Evernote web App UI testing using Selenium with Python programming language. This Test automation framework uses Python unittest module to execute the test cases and HTML testrunner module to generate reports.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@4.11.3">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/AmrutaN10/EvernoteTest.git</url>
+        <credentialsId>5722e348-2bf6-494a-b405-a30a2f5e6369</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="empty-list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <jenkins.plugins.shiningpanda.builders.CustomPythonBuilder plugin="shiningpanda@0.24">
+      <home>C:\Users\naika\AppData\Local\Programs\Python\Python310\python.exe</home>
+      <nature>shell</nature>
+      <command>python -m venv env
+call ./env/Scripts/activate.bat
+cd Evernote
+pip install --upgrade pip
+pip install -r requirement.txt
+python -m TestSuite
+
+
+</command>
+      <ignoreExitCode>false</ignoreExitCode>
+    </jenkins.plugins.shiningpanda.builders.CustomPythonBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
