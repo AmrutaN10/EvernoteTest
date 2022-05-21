@@ -1,5 +1,4 @@
-from selenium.webdriver.common.by import By
-from Locators.locators import locators
+from Helper.helper import *
 
 # Homepage class
 class homepage():

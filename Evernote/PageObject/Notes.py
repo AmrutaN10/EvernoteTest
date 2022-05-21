@@ -1,7 +1,5 @@
-from selenium.webdriver import Keys
-from selenium.webdriver.common.by import By
-from selenium import webdriver
-from Locators.locators import locators
+from Helper.helper import *
+
 # note page class
 class Notes():
     def __init__(self, driver):

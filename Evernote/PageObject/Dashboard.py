@@ -1,8 +1,4 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from Locators.locators import locators
+from Helper.helper import *
 
 # Dashboard class
 class dashboard():
@@ -22,6 +18,10 @@ class dashboard():
         self.open_note_rx = locators.open_note_rx
         self.note_action_button_rx = locators.note_action_button_rx
         self.delete_action_button_rx = locators.delete_action_button_rx
+
+    def hometext(self):
+        home_text = self.driver.find_element(by=By.XPATH, value=self.Home_rx).text
+        return home_text
 
     def account_dropdown_click(self):
         self.driver.find_element(by=By.XPATH, value=self.account_dropdown_rx).click()

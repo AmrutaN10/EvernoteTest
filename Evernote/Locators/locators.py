@@ -9,6 +9,7 @@ class locators():
     continue_button_id = "loginButton"
     passwrd_text_id = "password"
     signin_button_id = "loginButton"
+    errormessage_id = "responseMessage"
 
     # Dashboard web elements
     account_dropdown_rx = "//div[@class='PPxtw0kw4VI37OJ4B3Rm']"
