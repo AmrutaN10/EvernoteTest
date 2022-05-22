@@ -8,11 +8,7 @@ from PageObject.wrapper import wrapper
 from PageObject.Dashboard import dashboard
 from PageObject.Notes import Notes
 import HtmlTestRunner
-
-
-#driver = webdriver.Firefox()
-#driver.implicitly_wait(25)
-
+from testdata import *
 
 class loginfun(unittest.TestCase):
     @classmethod
@@ -21,10 +17,11 @@ class loginfun(unittest.TestCase):
         # cls.options = webdriver.FirefoxOptions()
         # cls.options.headless = True
         # driver = webdriver.Firefox(options=cls.options)
+
         cls.driver = webdriver.Firefox()
         cls.driver.implicitly_wait(25)
         cls.driver.maximize_window()
-        cls.driver.get("https://evernote.com/")
+        cls.driver.get(evernote_Url)
         # create homepage class object
         cls.Login = homepage(cls.driver)
         # create wrapper class object
@@ -39,11 +36,11 @@ class loginfun(unittest.TestCase):
         self.Login = homepage(self.driver)
         self.Login.reglogin_click()
         self.credentials = wrapper(self.driver)
-        self.credentials.enter_emailid("naikamruta43@gmail.com")
+        self.credentials.enter_emailid(valid_email)
         time.sleep(2)
         self.credentials.continue_button_click()
         time.sleep(2)
-        self.credentials.enter_passwrd("123456")
+        self.credentials.enter_passwrd(valid_password)
         self.credentials.signin_button_click()
         time.sleep(15)
         self.accountpage = dashboard(self.driver)
@@ -74,22 +71,22 @@ class loginfun(unittest.TestCase):
         self.page_notes = Notes(self.driver)
         self.driver.implicitly_wait(25)
         self.driver.maximize_window()
-        self.driver.get("https://evernote.com/")
+        self.driver.get(evernote_Url)
         time.sleep(10)
         self.Login.reglogin_click()
-        self.credentials.enter_emailid("naikamruta43@gmail.com")
+        self.credentials.enter_emailid(valid_email)
         time.sleep(2)
         self.credentials.continue_button_click()
         time.sleep(2)
-        self.credentials.enter_passwrd("123456")
+        self.credentials.enter_passwrd(valid_password)
         self.credentials.signin_button_click()
         time.sleep(25)
         self.accountpage.Home_click()
         self.accountpage.Notebutton_click()
         time.sleep(5)
         self.driver.switch_to.frame("qa-COMMON_EDITOR_IFRAME")
-        self.page_notes.edit_NotesTitle("TestCase03")
-        self.page_notes.edit_NotesBody("Hellooooo, this is to test valid login create note and logout")
+        self.page_notes.edit_NotesTitle(NotesTitle)
+        self.page_notes.edit_NotesBody(NotesBody)
         self.driver.switch_to.default_content()
         self.accountpage.Home_click()
         time.sleep(15)
@@ -112,15 +109,15 @@ class loginfun(unittest.TestCase):
         # create Notes class object
         self.page_notes = Notes(self.driver)
         self.driver.maximize_window()
-        self.driver.get("https://evernote.com/")
+        self.driver.get(evernote_Url)
         time.sleep(10)
         self.Login.reglogin_click()
         time.sleep(2)
-        self.credentials.enter_emailid("naikamruta43@gmail.com")
+        self.credentials.enter_emailid(valid_email)
         time.sleep(2)
         self.credentials.continue_button_click()
         time.sleep(2)
-        self.credentials.enter_passwrd("123456")
+        self.credentials.enter_passwrd(valid_password)
         self.credentials.signin_button_click()
         time.sleep(15)
         self.accountpage.Home_click()
@@ -147,11 +144,11 @@ class loginfun(unittest.TestCase):
         self.page_notes = Notes(self.driver)
         self.driver.implicitly_wait(25)
         self.driver.maximize_window()
-        self.driver.get("https://evernote.com/")
+        self.driver.get(evernote_Url)
         time.sleep(10)
         self.Login.reglogin_click()
         time.sleep(2)
-        self.credentials.enter_emailid("namruta43@gmail.com")
+        self.credentials.enter_emailid(invalid_email)
         time.sleep(2)
         self.credentials.continue_button_click()
         time.sleep(2)

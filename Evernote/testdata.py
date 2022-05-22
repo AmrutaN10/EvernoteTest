@@ -3,9 +3,9 @@ import openpyxl
 
 df = pd.read_excel('TestDataUnittest.xlsx',sheet_name='TestData')
 valid_email = df.loc[0].at['Username']
-valid_password = df.loc[0].at['Password']
+valid_password = str(df.loc[0].at['Password'])
 invalid_email = df.loc[1].at['Username']
-invalid_password = df.loc[1].at['Password']
+invalid_password = str(df.loc[1].at['Password'])
 
 df1 = pd.read_excel('TestDataUnittest.xlsx',sheet_name='url')
 evernote_Url = df1.loc[0].at['URL']
