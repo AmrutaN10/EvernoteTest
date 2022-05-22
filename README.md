@@ -1,4 +1,4 @@
-# Evernote Web APP UI Testing using Selenium with Python unittest framework
+# Evernote Web Application UI Testing using Selenium with Python unittest framework
 ## Pre-requisites:
 #### -Firefox browser
 #### -Install required packages from requirement.txt
