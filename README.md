@@ -59,3 +59,5 @@ Once job is imported successfully, open job and click on config
 
 Save job and Click on Build Now
 upon successful completion: compile output should look like below:
+
+![image](https://user-images.githubusercontent.com/105941762/169697043-4f16f990-fb70-40ce-8029-3f6652b42087.png)
