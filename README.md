@@ -1,6 +1,7 @@
 # Evernote Web Application UI Testing using Selenium with Python unittest framework
 ## Pre-requisites:
 #### -Firefox browser
+#### -Clone project
 #### -Install required packages from requirement.txt
 #### Change current directory to clone repository location in local system and type following pip command to install required packages:
 ```
