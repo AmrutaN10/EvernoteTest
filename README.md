@@ -52,7 +52,7 @@ HTML generated test report should display similar to below:
 Replace **http://server** with your jenkin server address in below command.
 Replace **username:password** with your jenkins username and password in below command.
 ```
-java -jar jenkins-cli.jar -s http://server -auth username:password create-job Newjob < Evernote_JenkinsBuildJobExport.xml
+java -jar jenkins-cli.jar -s http://server -auth username:password create-job NewjobName < Evernote_JenkinsBuildJobExport.xml
 ```
 
 Once job is imported successfully.
