@@ -3,10 +3,7 @@
 #### -Firefox browser
 #### -Clone project
 #### -Install required packages from requirement.txt
-#### Change current directory to clone repository location in local system and type following pip command to install required packages:
-```
-pip install -r requirement.txt
-```
+
 ### Helper module:
 It contains all common import libraries
 ### Locator module:
@@ -19,16 +16,20 @@ It contains all the 4 test scenarios source code in unittest module framework.
 It contains html test execution results summary reports
 ## How to execute automation tests?
 #### -Clone the repository
-#### -Update Valid,invalid login credentials and notes in TestDataUnittest.xlsx file(if only user wanted to try with new test data)
-#### -Change current directory to clone repository location in local system and type following commands in commandline interface:
+#### -Change current directory to clone repository location in local system
+#### -Update test data: Valid, Invalid login credentials and notes in Evernote/TestDataUnittest.xlsx file (if only user wanted to try with new test data)
+#### -Type following commands sequentially in commandline interface:
 ```
 cd Evernote
+pip install -r requirement.txt
 python -m TestSuite
 ```
-Once all test cases are exeuted successfull you can check console output from command line and html reports generated from Evernote/reports
+Once all test cases are exeuted successfull you can check console output from command line and html reports generated from Evernote/reports.
+
 Upon succesful execution of test cases Console output should be similar to below:
 
-![image](https://user-images.githubusercontent.com/105941762/169696586-68f1c733-2fbe-4449-a4f4-a909659658dd.png)
+![image](https://user-images.githubusercontent.com/105941762/169697436-4df68d18-a2da-443f-8229-2f6214399017.png)
+
 
 HTML generated test report should display similar to below:
 
